@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Calculadora jurídica",
+  "name": "Una calculadora para cuota alimenticia",
   "icons": [
     {
       "src": "favicon.ico",
