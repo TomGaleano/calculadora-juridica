@@ -286,7 +286,7 @@ function Cuota() {
                     <div>
                         <div className="w-auto ml-4 mr-4">
                             <Heading as='h1' size='xl' noOfLines={6}>
-                                Selecciona el año para el que vas a calcular la cuota de alimentos
+                                Selecciona el año
                             </Heading>
                         </div>
                         <div className="w-auto ml-4 mr-4">
