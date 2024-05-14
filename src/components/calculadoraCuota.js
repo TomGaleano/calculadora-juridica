@@ -285,8 +285,8 @@ function Cuota() {
                 return <div className="h-[40vh] relative flex items-center justify-center">
                     <div>
                         <div className="w-auto ml-4 mr-4">
-                            <Heading as='h1' size='xl' noOfLines={1}>
-                                Selecciona el periodo de consulta
+                            <Heading as='h1' size='xl' noOfLines={6}>
+                                Selecciona el año para el que vas a calcular la cuota de alimentos
                             </Heading>
                         </div>
                         <div className="w-auto ml-4 mr-4">
@@ -308,7 +308,7 @@ function Cuota() {
                                 <option value='2024'>2024</option>
                             </Select>
                         </div>
-                        <div className="absolute bottom-0 right-0">
+                        <div className="absolute bottom-0 right-0 pt-3">
                             <Button isDisabled={isButtonDisabled} colorScheme='blue' onClick={() => setActiveStep(nextStep => nextStep + 1)}>Siguiente</Button>
                         </div>
                     </div>
@@ -835,10 +835,10 @@ function Cuota() {
 
                         </div>
                     </div>
-                    <div className="absolute bottom-0 left-0">
+                    <div className="absolute bottom-0 left-0 pt-3">
                         <Button colorScheme='blue' onClick={() => setActiveStep(nextStep => nextStep - 1)}>Anterior</Button>
                     </div>
-                    <div className="absolute bottom-0 right-0">
+                    <div className="absolute bottom-0 right-0 pt-3">
                         <Button colorScheme='blue' onClick={() => setActiveStep(nextStep => nextStep + 1)}>Siguiente</Button>
                     </div>
                 </div>;
@@ -867,10 +867,10 @@ function Cuota() {
                             </FormControl>
                         )}
                     </div>
-                    <div className="absolute bottom-0 left-0">
+                    <div className="absolute bottom-0 left-0 pt-3">
                         <Button colorScheme='blue' onClick={() => setActiveStep(nextStep => nextStep - 1)}>Anterior</Button>
                     </div>
-                    <div className="absolute bottom-0 right-0">
+                    <div className="absolute bottom-0 right-0 pt-3">
                         <Button colorScheme='blue' onClick={() => setActiveStep(nextStep => nextStep + 1)}>Siguiente</Button>
                     </div>
                 </div>;
@@ -891,7 +891,7 @@ function Cuota() {
                                             <StatHelpText>Puedes calcular la deuda con el botón de la derecha</StatHelpText>
                                         </Stat>
                                         {futurasCuotaNecesarias()}
-                                        <div className="absolute bottom-0 left-0">
+                                        <div className="absolute bottom-0 left-0 pt-3">
                                             <Button colorScheme='blue' onClick={() => setActiveStep(nextStep => nextStep - 1)}>Anterior</Button>
                                         </div>
                                     </div>
@@ -903,10 +903,9 @@ function Cuota() {
                                         <Stat>
                                             <StatLabel>La cuota alimenticia congrua para {anio} se ha definido en</StatLabel>
                                             <StatNumber>{calcularCuotaCongrua().toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}  mensuales</StatNumber>
-                                            <StatHelpText>Puedes calcular la deuda con el botón de la derecha</StatHelpText>
                                         </Stat>
                                         {futurasCuotaCongruas()}
-                                        <div className="absolute bottom-0 left-0">
+                                        <div className="absolute bottom-0 left-0 pt-3">
                                             <Button colorScheme='blue' onClick={() => setActiveStep(nextStep => nextStep - 1)}>Anterior</Button>
                                         </div>
                                     </div>
