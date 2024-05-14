@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+
+// 1. import `ChakraProvider` component
+import { ChakraProvider } from '@chakra-ui/react'
+import Cuota from './components/calculadoraCuota'
 
 function App() {
+  // 2. Wrap ChakraProvider at the root of your app
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-4 p-4">
+      <ChakraProvider>
+        <Cuota />
+      </ChakraProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
