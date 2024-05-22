@@ -35,6 +35,7 @@ import {
     Td,
     TableContainer,
     Tooltip,
+    Divider,
 } from '@chakra-ui/react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import React, { useState, useEffect, useCallback } from 'react'
@@ -94,6 +95,7 @@ function Cuota() {
     const [cuidadoPersonalServiciosCongruo, setCuidadoPersonalServiciosCongruo] = useState(0);
     const [alimentacionCongruo, setAlimentacionCongruo] = useState(0);
     const [cuidoCongruo, setCuidoCongruo] = useState(0);
+    const [dependientesEconomicos, setDependientesEconomicos] = useState(1);
 
     const [respuesta, setRespuesta] = useState('No');
     const [salario, setSalario] = useState(0);
@@ -119,9 +121,9 @@ function Cuota() {
             parseFloat(cuidadoPersonalArticulosAseoNecesario) / 12 +
             parseFloat(cuidadoPersonalServiciosNecesario) / 12 +
             parseFloat(alimentacion) +
-            parseFloat(cuido))/2
+            parseFloat(cuido))/(2*dependientesEconomicos)
         );
-    }, [viviendaArriendoNecesario, viviendaMueblesNecesario, EducacionPensionNecesario, educacionUtilesNecesario, educacionUniformeNecesario, educacionAlimentacionNecesario, educacionTransporteNecesario, educacionOtrosNecesario, vestidoNecesario, saludMedicinaPrepagadaNecesario, saludMedicamentosEspecialesNecesario, saludServiciosMedicosEspecialesNecesario, saludAyudasTecnicasNecesario, cuidadoPersonalArticulosAseoNecesario, cuidadoPersonalServiciosNecesario, alimentacion, cuido]);
+    }, [viviendaArriendoNecesario, viviendaMueblesNecesario, EducacionPensionNecesario, educacionUtilesNecesario, educacionUniformeNecesario, educacionAlimentacionNecesario, educacionTransporteNecesario, educacionOtrosNecesario, vestidoNecesario, saludMedicinaPrepagadaNecesario, saludMedicamentosEspecialesNecesario, saludServiciosMedicosEspecialesNecesario, saludAyudasTecnicasNecesario, cuidadoPersonalArticulosAseoNecesario, cuidadoPersonalServiciosNecesario, alimentacion, cuido, dependientesEconomicos]);
     useEffect(() => {
         setCuotaCongrua(
             (parseFloat(viviendaArriendoCongruo) +
@@ -140,9 +142,9 @@ function Cuota() {
             parseFloat(cuidadoPersonalArticulosAseoCongruo) / 12 +
             parseFloat(cuidadoPersonalServiciosCongruo) / 12 +
             parseFloat(alimentacionCongruo) +
-            parseFloat(cuidoCongruo))/2
+            parseFloat(cuidoCongruo))/(2*dependientesEconomicos)
         );
-    }, [viviendaArriendoCongruo, viviendaMueblesCongruo, EducacionPensionCongruo, educacionUtilesCongruo, educacionUniformeCongruo, educacionAlimentacionCongruo, educacionTransporteCongruo, educacionOtrosCongruo, vestidoCongruo, saludMedicinaPrepagadaCongruo, saludMedicamentosEspecialesCongruo, saludServiciosMedicosEspecialesCongruo, saludAyudasTecnicasCongruo, cuidadoPersonalArticulosAseoCongruo, cuidadoPersonalServiciosCongruo, alimentacionCongruo, cuidoCongruo]);
+    }, [viviendaArriendoCongruo, viviendaMueblesCongruo, EducacionPensionCongruo, educacionUtilesCongruo, educacionUniformeCongruo, educacionAlimentacionCongruo, educacionTransporteCongruo, educacionOtrosCongruo, vestidoCongruo, saludMedicinaPrepagadaCongruo, saludMedicamentosEspecialesCongruo, saludServiciosMedicosEspecialesCongruo, saludAyudasTecnicasCongruo, cuidadoPersonalArticulosAseoCongruo, cuidadoPersonalServiciosCongruo, alimentacionCongruo, cuidoCongruo, dependientesEconomicos]);
 
     useEffect(() => {
         if (respuesta === 'No') {
@@ -866,6 +868,17 @@ function Cuota() {
                                 </NumberInput>
                             </FormControl>
                         )}
+                        <Divider height="20px" />
+                        <FormControl as='fieldset'>
+                            <FormLabel as='legend'>Incluyendo a este, ¿cuántos dependientes económicos tiene la persona?</FormLabel>
+                            <NumberInput value={dependientesEconomicos} onChange={(value) => setDependientesEconomicos(value)} max={20} min={1}>
+                                <NumberInputField />
+                                <NumberInputStepper>
+                                    <NumberIncrementStepper />
+                                    <NumberDecrementStepper />
+                                </NumberInputStepper>
+                            </NumberInput>
+                        </FormControl>
                     </div>
                     <div className="absolute bottom-0 left-0 pt-3">
                         <Button colorScheme='blue' onClick={() => setActiveStep(nextStep => nextStep - 1)}>Anterior</Button>
