@@ -281,6 +281,60 @@ function Cuota() {
         }
     }
 
+    useEffect(() => {
+        if (viviendaArriendoCongruo < viviendaArriendoNecesario) {
+            setviviendaArriendoCongruo(viviendaArriendoNecesario);
+        }
+        if (viviendaMueblesCongruo < viviendaMueblesNecesario) {
+            setviviendaMueblesCongruo(viviendaMueblesNecesario);
+        }
+        if (EducacionPensionCongruo < EducacionPensionNecesario) {
+            setEducacionPensionCongruo(EducacionPensionNecesario);
+        }
+        if (educacionUtilesCongruo < educacionUtilesNecesario) {
+            setEducacionUtilesCongruo(educacionUtilesNecesario);
+        }
+        if (educacionUniformeCongruo < educacionUniformeNecesario) {
+            setEducacionUniformeCongruo(educacionUniformeNecesario);
+        }
+        if (educacionAlimentacionCongruo < educacionAlimentacionNecesario) {
+            setEducacionAlimentacionCongruo(educacionAlimentacionNecesario);
+        }
+        if (educacionTransporteCongruo < educacionTransporteNecesario) {
+            setEducacionTransporteCongruo(educacionTransporteNecesario);
+        }
+        if (educacionOtrosCongruo < educacionOtrosNecesario) {
+            setEducacionOtrosCongruo(educacionOtrosNecesario);
+        }
+        if (vestidoCongruo < vestidoNecesario) {
+            setVestidoCongruo(vestidoNecesario);
+        }
+        if (saludMedicinaPrepagadaCongruo < saludMedicinaPrepagadaNecesario) {
+            setSaludMedicinaPrepagadaCongruo(saludMedicinaPrepagadaNecesario);
+        }
+        if (saludMedicamentosEspecialesCongruo < saludMedicamentosEspecialesNecesario) {
+            setSaludMedicamentosEspecialesCongruo(saludMedicamentosEspecialesNecesario);
+        }
+        if (saludServiciosMedicosEspecialesCongruo < saludServiciosMedicosEspecialesNecesario) {
+            setSaludServiciosMedicosEspecialesCongruo(saludServiciosMedicosEspecialesNecesario);
+        }
+        if (saludAyudasTecnicasCongruo < saludAyudasTecnicasNecesario) {
+            setSaludAyudasTecnicasCongruo(saludAyudasTecnicasNecesario);
+        }
+        if (cuidadoPersonalArticulosAseoCongruo < cuidadoPersonalArticulosAseoNecesario) {
+            setCuidadoPersonalArticulosAseoCongruo(cuidadoPersonalArticulosAseoNecesario);
+        }
+        if (cuidadoPersonalServiciosCongruo < cuidadoPersonalServiciosNecesario) {
+            setCuidadoPersonalServiciosCongruo(cuidadoPersonalServiciosNecesario);
+        }
+        if (alimentacionCongruo < alimentacion) {
+            setAlimentacionCongruo(alimentacion);
+        }
+        if (cuidoCongruo < cuido) {
+            setCuidoCongruo(cuido);
+        }
+    }, [viviendaArriendoNecesario, viviendaMueblesNecesario, EducacionPensionNecesario, educacionUtilesNecesario, educacionUniformeNecesario, educacionAlimentacionNecesario, educacionTransporteNecesario, educacionOtrosNecesario, vestidoNecesario, saludMedicinaPrepagadaNecesario, saludMedicamentosEspecialesNecesario, saludServiciosMedicosEspecialesNecesario, saludAyudasTecnicasNecesario, cuidadoPersonalArticulosAseoNecesario, cuidadoPersonalServiciosNecesario, alimentacion, cuido, viviendaArriendoCongruo, viviendaMueblesCongruo, EducacionPensionCongruo, educacionUtilesCongruo, educacionUniformeCongruo, educacionAlimentacionCongruo, educacionTransporteCongruo, educacionOtrosCongruo, vestidoCongruo, saludMedicinaPrepagadaCongruo, saludMedicamentosEspecialesCongruo, saludServiciosMedicosEspecialesCongruo, saludAyudasTecnicasCongruo, cuidadoPersonalArticulosAseoCongruo, cuidadoPersonalServiciosCongruo, alimentacionCongruo, cuidoCongruo]);
+
     const Pasos = () => {
         switch (activeStep) {
             case 0:
@@ -848,7 +902,7 @@ function Cuota() {
                 return <div className="h-[40vh] relative flex items-center justify-center">
                     <div className="w-auto ml-4 mr-4">
                         <FormControl as='fieldset'>
-                            <FormLabel as='legend'>¿Conoces los ingresos del deudor/la deudora?</FormLabel>
+                            <FormLabel as='legend'>¿Conoces los ingresos y alimentarios de la persona a quien se solicitará la cuota de alimentos?</FormLabel>
                             <RadioGroup defaultValue='No' onChange={setRespuesta}>
                                 <HStack spacing='24px'>
                                     <Radio value='Si'>Si</Radio>
@@ -870,7 +924,7 @@ function Cuota() {
                         )}
                         <Divider height="20px" />
                         <FormControl as='fieldset'>
-                            <FormLabel as='legend'>Incluyendo a este, ¿cuántos dependientes económicos tiene la persona?</FormLabel>
+                            <FormLabel as='legend'>Incluyendo el/la/los alimenatario(s) sobre los que se hace la siguiente liquidación, ¿cuántos alimentarios tiene a cargo la persona sobre la cual se solicitará la cuota?</FormLabel>
                             <NumberInput value={dependientesEconomicos} onChange={(value) => setDependientesEconomicos(value)} max={20} min={1}>
                                 <NumberInputField />
                                 <NumberInputStepper>
